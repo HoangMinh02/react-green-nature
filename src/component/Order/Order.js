@@ -4,9 +4,11 @@ import { useCart } from "../../CardContext";
 import axios from "axios";
 import "./Order.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import emailjs from "emailjs-com";
 
 const Order = () => {
-    const { cart } = useCart();
+    const { cart, deleteAllCart } = useCart();
     const [listCart, setListCart] = useState(cart);
     console.log(cart);
     const navigate = useNavigate();
@@ -30,15 +32,52 @@ const Order = () => {
     };
     const sendInformOrder = async (e) => {
         e.preventDefault();
-        const result = await axios.post("https://65f40b4c105614e654a1c62c.mockapi.io/Order", {
-            ...form,
-            listProduct: [...cart],
-        });
+        if (!form.fullName || !form.phone || !form.email || !form.address || !form.note) {
+            toast.warn("Vui lòng nhập đủ thông tin", {
+                position: "top-center",
+                autoClose: 2000,
+            });
+        } else {
+            emailjs.sendForm("service_395cbvb", "template_av35drr", e.target, "Z410pJ5PAXMpMgaoP").then(
+                (result) => {
+                    toast.success("Đặt hàng thành công", {
+                        position: "top-center",
+                        autoClose: 2000,
+                    });
+                },
+                (error) => {
+                    toast.warn(`${error.text}`, {
+                        position: "top-center",
+                        autoClose: 2000,
+                    });
+                }
+            );
+            try {
+                const result = await axios.post("https://65f40b4c105614e654a1c62c.mockapi.io/Order", {
+                    ...form,
+                    listProduct: [...cart],
+                });
 
-        if (result.status === 201) {
-            alert("Add successed");
-            navigate("/");
+                if (result.status === 201) {
+                    navigate("/");
+                    deleteAllCart();
+                }
+            } catch (error) {
+                toast.error("Không thể đặt hàng", {
+                    position: "top-center",
+                    autoClose: 2000,
+                });
+            }
         }
+        // const result = await axios.post("https://65f40b4c105614e654a1c62c.mockapi.io/Order", {
+        //     ...form,
+        //     listProduct: [...cart],
+        // });
+
+        // if (result.status === 201) {
+        //     alert("Add successed");
+        //     navigate("/");
+        // }
     };
     return (
         <div className="order">
@@ -64,11 +103,11 @@ const Order = () => {
                                 <Table>
                                     <thead>
                                         <tr>
-                                            <th className="product-name" colSpan={3}>
+                                            <th className="product-name" colSpan={2}>
                                                 Sản phẩm
                                             </th>
-                                            <th className="product-price">Giá</th>
                                             <th className="product-quantity">Số lượng</th>
+                                            <th className="product-price">Giá</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -86,7 +125,7 @@ const Order = () => {
                                                             <img src={item.thumb} alt="" />
                                                         </td>
                                                         <td className="product-name">{item.name}</td>
-                                                        <td className="product-price">
+                                                        {/* <td className="product-price">
                                                             <div className="price">
                                                                 <span className={` ${item.discount !== 0 && "priceOld"}`}>{convertedMoney}</span>
                                                                 <span>
@@ -95,7 +134,7 @@ const Order = () => {
                                                                     )}
                                                                 </span>
                                                             </div>
-                                                        </td>
+                                                        </td> */}
                                                         <td className="product-quantity">
                                                             <div className="plus-minus">
                                                                 <input name="quantity" type="text" value={item.quantity} />
@@ -126,13 +165,15 @@ const Order = () => {
                                 <h3>
                                     Tổng tiền:{" "}
                                     <span>
-                                        {listCart.reduce((total, item) => {
-                                            if (item.discount !== 0) {
-                                                return total + (item.price - item.price * (item.discount / 100)) * item.quantity;
-                                            } else {
-                                                return formatter.format(total + item.price * item.quantity);
-                                            }
-                                        }, 0)}
+                                        {formatter.format(
+                                            listCart.reduce((total, item) => {
+                                                if (item.discount !== 0) {
+                                                    return total + (item.price - item.price * (item.discount / 100)) * item.quantity;
+                                                } else {
+                                                    return total + item.price * item.quantity;
+                                                }
+                                            }, 0)
+                                        )}
                                     </span>
                                 </h3>
                                 <Button type="submit">Đặt hàng</Button>

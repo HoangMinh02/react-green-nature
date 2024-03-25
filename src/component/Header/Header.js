@@ -39,22 +39,22 @@ const Header = () => {
                     <div className="right">
                         <ul>
                             <li>
-                                <a href="">
+                                <a href="https://www.facebook.com/profile.php?id=100069716288106&mibextid=ZbWKwL" target="_blank">
                                     <i class="fa-brands fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="https://www.facebook.com/profile.php?id=100069716288106&mibextid=ZbWKwL" target="_blank">
                                     <i class="fa-brands fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="https://www.facebook.com/profile.php?id=100069716288106&mibextid=ZbWKwL" target="_blank">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="https://www.facebook.com/profile.php?id=100069716288106&mibextid=ZbWKwL" target="_blank">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </a>
                             </li>

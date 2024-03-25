@@ -67,11 +67,7 @@
 .product-content .product-desc {
     transition: all 0.4s ease;
 }
-/* .card-product:hover .product-content .product-desc {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(50%);
-} */
+
 .product-content .product-desc .product-title {
     line-height: 24px;
     font-weight: 500;
@@ -112,5 +108,19 @@
 
     100% {
         transform: rotate(-20deg) scale(1.1);
+    }
+}
+@media (max-width: 992px) {
+    .product-thumb img {
+        margin: auto;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .product-thumb .label_product span {
+        height: 25px;
+        width: 25px;
+        line-height: 27px;
+        font-size: 15px;
     }
 }

@@ -19,20 +19,22 @@ const CardProduct = ({ id, thumb, name, price, discount }) => {
             autoClose: 1000,
         });
         const product = { id, thumb, name, price, discount };
+
+        addToCart(product, 1);
         console.log(product);
-        addToCart(product);
     };
+
     return (
         <Container pe={3}>
             <Row>
                 <Col>
-                    <Link to={`/detail/${id}`} className="card-product ">
-                        <div class="product-thumb">
+                    <div className="card-product ">
+                        <Link to={`/detail/${id}`} class="product-thumb">
                             <img src={thumb} alt="" />
                             <div class="label_product">{discount > 0 && <span class="label_sale">{discount}%</span>}</div>
-                        </div>
+                        </Link>
                         <div class="product-content">
-                            <div class="product-desc">
+                            <Link to={`/detail/${id}`} class="product-desc">
                                 <a class="product-title" href="" title="">
                                     {name}
                                 </a>
@@ -40,12 +42,12 @@ const CardProduct = ({ id, thumb, name, price, discount }) => {
                                     <span className={` ${discount !== 0 && "priceOld"}`}>{convertedMoney}</span>{" "}
                                     <span>{discount !== 0 && <div className="priceDiscount">{convertDiscountMoney}</div>}</span>
                                 </p>
-                            </div>
+                            </Link>
                             <Button onClick={handleAddCard}>
                                 <i class="fa-solid fa-bag-shopping"></i>
                             </Button>
                         </div>
-                    </Link>
+                    </div>
                 </Col>
             </Row>
         </Container>

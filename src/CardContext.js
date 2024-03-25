@@ -5,6 +5,7 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState(localStorage.getItem("LIST_CART") ? JSON.parse(localStorage.getItem("LIST_CART")) : []);
     const addToCart = (product, inputQuantity) => {
+        console.log(inputQuantity);
         const newCart = [...cart];
 
         const checkIndex = newCart.findIndex((item) => item.id === product.id);
@@ -23,7 +24,10 @@ const CartProvider = ({ children }) => {
         newCart.splice(index, 1);
         setCart(newCart);
     };
-    return <CartContext.Provider value={{ addToCart, cart, deleteToCart }}>{children}</CartContext.Provider>;
+    const deleteAllCart = () => {
+        setCart([]);
+    };
+    return <CartContext.Provider value={{ addToCart, cart, deleteToCart, deleteAllCart }}>{children}</CartContext.Provider>;
 };
 
 const useCart = () => {

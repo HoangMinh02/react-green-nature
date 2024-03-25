@@ -85,6 +85,9 @@
     top: -14px;
     left: 17px;
 }
+.header .header-main .choice {
+    gap: 20px;
+}
 .header .header-main .choice a {
     font-weight: 600;
     margin: 0 20px;
@@ -93,6 +96,14 @@
 }
 .header .header-main .choice a:hover {
     color: #018342;
+}
+@media (max-width: 992px) {
+    .header .header-main .search {
+        display: none !important;
+    }
+    .header .header-main img {
+        width: 200px;
+    }
 }
 @media (max-width: 768px) {
     .header .header-info .right {
