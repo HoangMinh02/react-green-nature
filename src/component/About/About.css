@@ -1,0 +1,62 @@
+.about h3 {
+    font-weight: bold;
+    position: relative;
+    color: var(--primary-color);
+    padding-bottom: 10px;
+    border-bottom: 5px solid var(--primary-color);
+}
+.about p {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.about-us {
+    padding-top: 50px;
+}
+.about-us .review {
+    padding: 0;
+}
+
+.about-us .review img {
+    width: 100px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+.about-us .review h3 {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: center;
+    border: none;
+    font-size: 25px;
+}
+.about-us .review p {
+    text-align: justify;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+.reason {
+    margin-bottom: 20px;
+}
+.reason .title {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 40px 0;
+}
+.reason img {
+    width: 50px;
+}
+.reason .reason-content h3 {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 17px;
+    font-weight: bold;
+}
+.reason .reason-content p {
+    font-size: 16px;
+    color: var(--primary-color);
+}

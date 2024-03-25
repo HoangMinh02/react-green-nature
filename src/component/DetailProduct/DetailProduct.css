@@ -1,0 +1,71 @@
+.detail {
+    margin: 20px 0;
+}
+.detail .title {
+    font-weight: normal;
+}
+.detail .title span {
+    font-weight: bold;
+}
+.detail .title .is-bottom {
+    display: block;
+    height: 4px;
+    margin: 10px 0;
+    max-width: 50px;
+    width: 100%;
+    background-color: #e3b845;
+}
+.detail .title .product-price {
+    display: flex;
+    margin-bottom: 6px;
+    color: #008749;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 20px;
+}
+.detail .title .product-price .priceOld {
+    text-decoration: line-through;
+    color: rgb(188, 185, 185);
+    /* font-size: 16px; */
+    margin-right: 20px;
+}
+
+.detail .choose .plus-minus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(189, 186, 186);
+    width: 20%;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 20px 0;
+}
+.detail .choose .plus-minus input {
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 30%;
+    color: #000;
+}
+.detail .choose .plus-minus i {
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(96, 96, 96);
+}
+.detail .thumb {
+    margin-bottom: 20px;
+}
+.detail .slick-slide img {
+    padding: 0 5px;
+}
+.detail .btn-cart {
+    display: block;
+    padding: 8px 20px;
+    background-color: #018342;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}

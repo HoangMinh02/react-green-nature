@@ -1,0 +1,109 @@
+.header {
+    background: #214738;
+    border-bottom: 1px solid #ddd;
+}
+.header .header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #214738;
+    padding: 8px 0;
+}
+.header .header-info .left ul,
+.header .header-info .right ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .header-info .left ul li,
+.header .header-info .right ul li {
+    padding: 0px 15px;
+    border-left: 1px solid #f1f1f136;
+}
+.header .header-info .left ul li:first-child,
+.header .header-info .right ul li:first-child {
+    border: none;
+}
+.header .header-info .left ul a,
+.header .header-info .right ul a {
+    color: #ffffffcc;
+    font-family: var(--font-sencondary);
+    font-size: 14px;
+}
+.header .header-info .left ul a i {
+    margin-right: 10px;
+}
+.header .header-info .right ul li a:hover {
+    color: rgb(9, 241, 137);
+}
+.header .header-main {
+    background-color: #fcf9f3;
+}
+.header .header-main img {
+    width: 300px;
+}
+.header .header-main .search {
+    position: relative;
+}
+.header .header-main .search input {
+    width: 100%;
+    padding: 10px 30px;
+    border: 2px solid #018342;
+    border-radius: 30px;
+    outline: none;
+}
+.header .header-main .search input::placeholder {
+    font-weight: 400;
+    color: var(--primary-color);
+}
+.header .header-main .fa-magnifying-glass {
+    color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.header .header-main .cart {
+    margin-left: 50px;
+    position: relative;
+}
+.header .header-main .cart a {
+    font-size: 25px;
+    transition: 0.3s;
+}
+.header .header-main .cart a:hover {
+    color: #018342;
+}
+.header .header-main .cart span {
+    position: absolute;
+    text-align: center;
+    background-color: #214738;
+    color: white;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    top: -14px;
+    left: 17px;
+}
+.header .header-main .choice a {
+    font-weight: 600;
+    margin: 0 20px;
+    font-family: var(--font-sencondary);
+    color: var(--primary-color);
+}
+.header .header-main .choice a:hover {
+    color: #018342;
+}
+@media (max-width: 768px) {
+    .header .header-info .right {
+        display: none;
+    }
+    .header .header-info {
+        justify-content: center;
+    }
+}
+@media (max-width: 480px) {
+    .header .header-main img {
+        width: 200px;
+    }
+}

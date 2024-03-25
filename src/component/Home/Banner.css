@@ -1,0 +1,15 @@
+.content .carousel-caption {
+    padding: 10px 15px;
+    background-color: #f1f1f180;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: unset;
+}
+.content .carousel-caption h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+}

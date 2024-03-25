@@ -1,0 +1,6 @@
+.headline .title {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0;
+}

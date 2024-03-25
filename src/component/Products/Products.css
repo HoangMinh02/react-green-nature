@@ -1,0 +1,53 @@
+.products {
+    margin-top: 30px;
+}
+.products .categories {
+    margin-bottom: 20px;
+}
+.products .categories .inputSearch {
+    position: relative;
+    margin-bottom: 20px;
+}
+.products .categories .inputSearch input {
+    width: 100%;
+    padding: 10px 30px;
+    border: 2px solid #018342;
+    border-radius: 30px;
+    outline: none;
+}
+.products .categories .inputSearch input::placeholder {
+    font-weight: 400;
+    color: var(--primary-color);
+}
+.products .categories .inputSearch .fa-magnifying-glass {
+    color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.products .categories h4 {
+    font-size: 25px;
+    font-weight: bold;
+}
+.products .categories .is-bottom {
+    display: block;
+    height: 4px;
+    margin: 1px 0;
+    max-width: 50px;
+    width: 100%;
+    background-color: #018342;
+}
+.products .categories .option li {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.5s;
+}
+.products .categories .option li.active {
+    background-color: #018342;
+    color: white;
+}
