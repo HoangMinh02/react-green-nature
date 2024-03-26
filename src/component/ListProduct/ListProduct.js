@@ -42,9 +42,9 @@ const ListProduct = () => {
         speed: 700,
         slidesToShow: 4,
         slidesToScroll: 3,
-        // autoplay: true,
-        // autoplaySpeed: 2000,
-        // cssEase: "linear",
+        autoplay: true,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
     });
     const formatter = new Intl.NumberFormat("vi-VN", {
         style: "currency",

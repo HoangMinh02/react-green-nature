@@ -49,7 +49,7 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li className="content">
-                                <a href="">
+                                <a href="/contact">
                                     <i class="fa-solid fa-angle-right"></i>
                                     Liên hệ
                                 </a>
