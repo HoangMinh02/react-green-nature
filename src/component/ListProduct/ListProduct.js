@@ -15,11 +15,11 @@ const ListProduct = () => {
             let slidesToShow = 4;
             let slidesToScroll = 2;
             if (window.innerWidth <= 991) {
-                slidesToShow = 2;
+                slidesToShow = 3;
                 slidesToScroll = 1;
             }
             if (window.innerWidth <= 576) {
-                slidesToShow = 1;
+                slidesToShow = 2;
                 slidesToScroll = 1;
             }
             setSettings({

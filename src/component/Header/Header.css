@@ -64,6 +64,7 @@
     transform: translateY(-50%);
 }
 .header .header-main .cart {
+    margin-top: 10px;
     margin-left: 50px;
     position: relative;
 }
@@ -86,7 +87,7 @@
     left: 17px;
 }
 .header .header-main .choice {
-    gap: 20px;
+    gap: 30px;
 }
 .header .header-main .choice a {
     font-weight: 600;
@@ -97,12 +98,45 @@
 .header .header-main .choice a:hover {
     color: #018342;
 }
+@media (max-width: 1400px) {
+    .header .header-main .choice a {
+        margin: 0;
+    }
+}
+@media (max-width: 1200px) {
+    .header .header-main img {
+        width: 200px;
+    }
+    .header .header-main .search input {
+        padding: 5px;
+    }
+    .header .header-main .choice {
+        font-size: 15px;
+    }
+    .header .header-main .search {
+        margin-left: 10px;
+    }
+    .header .header-main .cart {
+        margin-left: 30px;
+    }
+    .header .header-main .cart a {
+        font-size: 22px;
+    }
+    .header .header-main .cart span {
+        width: 20px;
+        height: 20px;
+        font-size: 13px;
+    }
+}
 @media (max-width: 992px) {
     .header .header-main .search {
         display: none !important;
     }
-    .header .header-main img {
-        width: 200px;
+    .header .header-main .cart {
+        order: 1; /* Đặt phần tử này ở vị trí sau */
+    }
+    .navbar-toggler {
+        order: 2; /* Đặt phần tử này ở vị trí trước */
     }
 }
 @media (max-width: 768px) {

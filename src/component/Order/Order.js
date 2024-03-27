@@ -30,6 +30,11 @@ const Order = () => {
         });
         console.log(form);
     };
+    // Xac thuc sdt
+    const validatePhoneNumber = (phoneNumber) => {
+        const phoneRegex = /^\d{10}$/; // Gia su sdt VN co 10 số
+        return phoneRegex.test(phoneNumber);
+    };
     const sendInformOrder = async (e) => {
         e.preventDefault();
         if (!form.fullName || !form.phone || !form.email || !form.address || !form.note) {
@@ -37,6 +42,12 @@ const Order = () => {
                 position: "top-center",
                 autoClose: 2000,
             });
+        } else if (!validatePhoneNumber(form.phone)) {
+            toast.warn("Số điện thoại không hợp lệ", {
+                position: "top-center",
+                autoClose: 2000,
+            });
+            // setPhoneError("Số điện thoại không hợp lệ");
         } else {
             emailjs.sendForm("service_395cbvb", "template_av35drr", e.target, "Z410pJ5PAXMpMgaoP").then(
                 (result) => {
@@ -69,15 +80,6 @@ const Order = () => {
                 });
             }
         }
-        // const result = await axios.post("https://65f40b4c105614e654a1c62c.mockapi.io/Order", {
-        //     ...form,
-        //     listProduct: [...cart],
-        // });
-
-        // if (result.status === 201) {
-        //     alert("Add successed");
-        //     navigate("/");
-        // }
     };
     return (
         <div className="order">
@@ -103,11 +105,9 @@ const Order = () => {
                                 <Table>
                                     <thead>
                                         <tr>
-                                            <th className="product-name" colSpan={2}>
-                                                Sản phẩm
-                                            </th>
-                                            <th className="product-quantity">Số lượng</th>
-                                            <th className="product-price">Giá</th>
+                                            <th className="product-name">Tên sản phẩm</th>
+                                            <th>Số lượng</th>
+                                            <th>Tạm tính</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -121,20 +121,10 @@ const Order = () => {
                                                 );
                                                 return (
                                                     <tr key={item.id}>
-                                                        <td className="product-thumbnail">
+                                                        {/* <td className="product-thumbnail">
                                                             <img src={item.thumb} alt="" />
-                                                        </td>
-                                                        <td className="product-name">{item.name}</td>
-                                                        {/* <td className="product-price">
-                                                            <div className="price">
-                                                                <span className={` ${item.discount !== 0 && "priceOld"}`}>{convertedMoney}</span>
-                                                                <span>
-                                                                    {item.discount !== 0 && (
-                                                                        <div className="priceDiscount">{convertDiscountMoney}</div>
-                                                                    )}
-                                                                </span>
-                                                            </div>
                                                         </td> */}
+                                                        <td className="product-name">{item.name}</td>
                                                         <td className="product-quantity">
                                                             <div className="plus-minus">
                                                                 <input name="quantity" type="text" value={item.quantity} />

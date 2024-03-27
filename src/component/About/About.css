@@ -60,3 +60,12 @@
     font-size: 16px;
     color: var(--primary-color);
 }
+
+@media (max-width: 420px) {
+    .about p {
+        font-size: 16px;
+    }
+    .about-us .review p {
+        font-size: 14px;
+    }
+}

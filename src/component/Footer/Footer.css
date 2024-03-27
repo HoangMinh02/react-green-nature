@@ -52,3 +52,8 @@
     text-align: center;
     border-top: 1px solid #fff;
 }
+@media (max-width: 420px) {
+    .footer .footer-bottom {
+        font-size: 14px;
+    }
+}

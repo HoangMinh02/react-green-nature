@@ -14,6 +14,8 @@ import Contact from "./component/Contact/Contact";
 import Search from "./component/Header/Search";
 import CartProduct from "./component/CartProduct/CartProduct";
 import Order from "./component/Order/Order";
+import Blog from "./component/Blog/Blog";
+import DetailBlog from "./component/Blog/DetailBlog";
 
 function App() {
     return (
@@ -25,6 +27,8 @@ function App() {
                     <Route path="/" element={<Home></Home>}></Route>
                     <Route path="/about" element={<About />}></Route>
                     <Route path="/product" element={<Products></Products>}></Route>
+                    <Route path="/blog" element={<Blog></Blog>}></Route>
+                    <Route path="/detail-blog/:slug" element={<DetailBlog></DetailBlog>}></Route>
                     <Route path="/detail/:slug" element={<DetailProduct></DetailProduct>}></Route>
                     <Route path="/search/:slug" element={<Search></Search>}></Route>
                     <Route path="/contact" element={<Contact></Contact>}></Route>

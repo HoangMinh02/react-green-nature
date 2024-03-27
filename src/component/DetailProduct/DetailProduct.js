@@ -85,14 +85,14 @@ const DetailProduct = () => {
         <div className="detail">
             <Container>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} sm={12}>
                         <img className="thumb" src={image} alt="" />
                         <Slider {...settings}>
                             {detailProduct.thumb_detail &&
                                 detailProduct.thumb_detail.map((item) => <img onClick={() => handleImage(item)} src={item} alt="" />)}
                         </Slider>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} sm={12}>
                         <div className="title">
                             <h2>{detailProduct.name}</h2>
                             <div className="is-bottom"></div>

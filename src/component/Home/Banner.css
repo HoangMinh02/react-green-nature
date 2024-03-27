@@ -13,3 +13,8 @@
     color: var(--primary-color);
     font-weight: 700;
 }
+@media (max-width: 768px) {
+    .content .carousel-caption h3 {
+        font-size: 15px;
+    }
+}

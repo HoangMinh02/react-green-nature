@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import CardProduct from "../CardProduct/CardProduct";
 import useFetch from "../../useFetch";
 import "./Products.css";
-import { type } from "@testing-library/user-event/dist/type";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
     const listProduct = useFetch("https://65f40b4c105614e654a1c62c.mockapi.io/product");
@@ -12,6 +12,15 @@ const Products = () => {
     const [filterPrice, setFilterPrice] = useState({ min: 100000, max: 2000000 });
     const [filterCategory, setFilterCategory] = useState("Tất cả sản phẩm");
     const [filterProduct, setFilterProduct] = useState();
+    const [keySearch, setKeySearch] = useState();
+    const navigate = useNavigate();
+    const handleSearch = (e) => {
+        if (e.keyCode === 13) {
+            console.log(keySearch);
+            navigate(`/search/${keySearch}`);
+            setKeySearch("");
+        }
+    };
     useEffect(() => {
         setFilterProduct(listProduct);
     }, [listProduct]);
@@ -37,12 +46,22 @@ const Products = () => {
         <div className="products">
             <Container>
                 <Row>
+                    <div className="search d-flex">
+                        <Form.Control
+                            type="search"
+                            value={keySearch}
+                            placeholder="Tìm kiếm sản phẩm"
+                            className="inputSearch me-2"
+                            aria-label="Search"
+                            onChange={(e) => setKeySearch(e.target.value)}
+                            onKeyDown={handleSearch}
+                        />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </Row>
+                <Row>
                     <Col md={3}>
                         <div className="categories">
-                            <div className="inputSearch">
-                                <input type="text" placeholder="Tìm kiếm sản phẩm" />
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
                             <h4>Danh mục</h4>
                             <div className="is-bottom"></div>
                             <ul className="option">
@@ -81,7 +100,7 @@ const Products = () => {
                             <h4>{filterCategory}</h4>
                             {filterProduct &&
                                 filterProduct.map((item) => (
-                                    <Col md={4} key={item.id}>
+                                    <Col md={4} sm={4} key={item.id}>
                                         <CardProduct
                                             id={item.id}
                                             thumb={item.thumb}

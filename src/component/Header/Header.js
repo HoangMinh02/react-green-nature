@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "./Header.css";
@@ -16,6 +16,11 @@ const Header = () => {
             setKeySearch("");
         }
     };
+    const navbarRef = useRef();
+    useEffect(() => {
+        navbarRef.current.classList.remove("show");
+    }, [navigate]);
+
     return (
         <div className="header">
             <Container>
@@ -69,7 +74,7 @@ const Header = () => {
                             <img src={logo} alt="" />
                         </NavLink>
                         <Navbar.Toggle aria-controls="navbarScroll" />
-                        <Navbar.Collapse id="navbarScroll">
+                        <Navbar.Collapse id="navbarScroll" ref={navbarRef}>
                             <Nav className="choice me-auto my-5 my-lg-0" navbarScroll>
                                 <NavLink to="/">TRANG CHỦ</NavLink>
                                 <NavLink to="/about">GIỚI THIỆU</NavLink>
@@ -89,11 +94,12 @@ const Header = () => {
                                 />
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
-                            <Link to="/cart-product" className="cart">
-                                <a className="fa-solid fa-cart-shopping"></a>
-                                <span>{cart.length}</span>
-                            </Link>
                         </Navbar.Collapse>
+
+                        <Link to="/cart-product" className="cart">
+                            <a className="fa-solid fa-cart-shopping"></a>
+                            <span>{cart.length}</span>
+                        </Link>
                     </Container>
                 </Navbar>
             </div>

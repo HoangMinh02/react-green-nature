@@ -39,16 +39,16 @@ const CartProduct = () => {
             ) : (
                 <Container>
                     <Row>
-                        <Col lg={12} md={12} sm={6}>
+                        <Col lg={12} md={12} sm={12}>
                             <Table>
                                 <thead>
                                     <tr>
-                                        <th className="product-name" colSpan={3}>
-                                            Sản phẩm
-                                        </th>
-                                        <th className="product-price">Giá</th>
-                                        <th className="product-quantity">Số lượng</th>
-                                        <th className="product-subtotal">Tạm tính</th>
+                                        <th className="product-name">Tên sản phẩm</th>
+                                        <th className="product-thumbnail">Hình ảnh</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Tạm tính</th>
+                                        <th>Xóa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,15 +62,10 @@ const CartProduct = () => {
                                             );
                                             return (
                                                 <tr key={item.id}>
-                                                    <td className="product-remove">
-                                                        <span class="remove">
-                                                            <i class="fa-solid fa-xmark" onClick={() => handleChange(item.id, "delete")}></i>
-                                                        </span>
-                                                    </td>
+                                                    <td className="product-name">{item.name}</td>
                                                     <td className="product-thumbnail">
                                                         <img src={item.thumb} alt="" />
                                                     </td>
-                                                    <td className="product-name">{item.name}</td>
                                                     <td className="product-price">
                                                         <div className="price">
                                                             <span className={` ${item.discount !== 0 && "priceOld"}`}>{convertedMoney}</span>
@@ -101,6 +96,11 @@ const CartProduct = () => {
                                                             )}
                                                         </div>
                                                     </td>
+                                                    <td className="product-remove">
+                                                        <span class="remove">
+                                                            <i class="fa-solid fa-xmark" onClick={() => handleChange(item.id, "delete")}></i>
+                                                        </span>
+                                                    </td>
                                                 </tr>
                                             );
                                         })}
@@ -109,7 +109,7 @@ const CartProduct = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg={12} sm={6}>
+                        <Col lg={12} sm={12}>
                             <div className="total">
                                 <h3>
                                     Tổng tiền:{" "}
