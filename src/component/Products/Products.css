@@ -9,7 +9,7 @@
     position: relative;
     margin-bottom: 20px;
     width: 100%;
-    display: none;
+    display: none !important;
 }
 .products .search input {
     width: 100%;
@@ -72,12 +72,12 @@
     .products .categories .option li {
         font-size: 15px;
     }
-    .products .inputSearch {
+    .products .search {
         display: block;
     }
 }
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     .products .categories .option {
         width: 30%;
     }
-}
+} */
