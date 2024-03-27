@@ -26,6 +26,7 @@ const CartProvider = ({ children }) => {
     };
     const deleteAllCart = () => {
         setCart([]);
+        localStorage.removeItem("LIST_CART", JSON.stringify());
     };
     return <CartContext.Provider value={{ addToCart, cart, deleteToCart, deleteAllCart }}>{children}</CartContext.Provider>;
 };
