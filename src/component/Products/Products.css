@@ -73,7 +73,7 @@
         font-size: 15px;
     }
     .products .search {
-        display: block;
+        display: block !important;
     }
 }
 /* @media (max-width: 767px) {
